@@ -4,11 +4,22 @@ What's new
 Ongoing developments
 ====================
 
+New features
+------------
+- Add `kernel_kwargs` keyword to :func:`~xoa.filter.convolve` to better control
+  the kernel generation by :func:`~xoa.filter.generate_kernel`.
+- Add inference of parameters for some window functions, like the gaussian
+  shape, in :func:`~xoa.filter.get_window_func`.
+
+Breaking changes
+----------------
+- func:`~xoa.filter.get_window_func` accepts now only one positional argument
+  and all other arguments must be named.
+
 Bug fixes
 ---------
 - Fix :func:`xoa.sigma.get_sigma_terms` so that it works in case of multiple levels coordinates [:pull:`60`]
 - Fix :func:`xoa.grid.to_rect` that now infers coordinates and can emit a warning or raise an error.
-
 
 
 0.6.0 (2022-02-24)
@@ -44,9 +55,6 @@ Breaking changes
 - A single Nan now contaminates the data over the kernel emprise in :func:`xoa.filter.convolve`
   since `na_thres` is set to zero by default  [:pull:`40`].
 - xoa now requires the :mod:`gsw` package.
-
-Deprecations
-------------
 
 Bug fixes
 ---------
